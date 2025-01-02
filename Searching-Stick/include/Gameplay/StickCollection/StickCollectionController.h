@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <thread>
 
 namespace Gameplay
 {
@@ -22,6 +23,7 @@ namespace Gameplay
 			void render();
 
 			void reset();
+			void searchElement(SearchType search_type);
 
 			SearchType getSearchType();
 			int getNumberOfSticks();
@@ -36,11 +38,11 @@ namespace Gameplay
 
 			void initializeSticks();
 			float calculateStickWidth();
+			float calculateStickHeight(int array_pos);
 
 			void updateSticksPosition();
 			void resetSticksColor();
 			void initializeSticksArray();
-			float calculateStickHeight(int array_pos);
 
 			void destroy();
 		};
