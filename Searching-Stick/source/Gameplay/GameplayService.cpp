@@ -14,8 +14,14 @@ namespace Gameplay
 	{
 	}
 
+	void GameplayService::initializeRandomSeed()
+	{
+		std::srand(static_cast<unsigned int>(std::time(nullptr)));
+	}
+
 	void GameplayService::initialize()
 	{
+		initializeRandomSeed();
 	}
 
 	void GameplayService::update()

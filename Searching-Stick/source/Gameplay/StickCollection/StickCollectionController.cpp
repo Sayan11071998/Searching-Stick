@@ -44,6 +44,7 @@ namespace Gameplay
 		{
 			updateSticksPosition();
 			resetSticksColor();
+			shuffleSticks();
 		}
 
 		void Gameplay::Collection::StickCollectionController::initializeSticks()
@@ -86,16 +87,57 @@ namespace Gameplay
 			}
 		}
 
+		void Gameplay::Collection::StickCollectionController::initializeSticksArray()
+		{
+			for (int i = 0; i < collection_model->number_of_elements; i++)
+				sticks.push_back(new Stick(i));
+		}
+
+		void Gameplay::Collection::StickCollectionController::shuffleSticks()
+		{
+			std::random_device device;
+			std::mt19937 random_engine(device());
+			std::shuffle(sticks.begin(), sticks.end(), random_engine);
+		}
+
 		void StickCollectionController::resetSticksColor()
 		{
 			for (int i = 0; i < sticks.size(); i++)
 				sticks[i]->stick_view->setFillColor(collection_model->element_color);
 		}
 
-		void Gameplay::Collection::StickCollectionController::initializeSticksArray()
+		void StickCollectionController::resetVariables()
 		{
-			for (int i = 0; i < collection_model->number_of_elements; i++)
-				sticks.push_back(new Stick(i));
+		}
+
+		void Gameplay::Collection::StickCollectionController::resetSearchStick()
+		{
+			stick_to_search = sticks[std::rand() % sticks.size()];
+			stick_to_search->stick_view->setFillColor(collection_model->search_element_color);
+		}
+
+		void Gameplay::Collection::StickCollectionController::processLinearSearch()
+		{
+			for (int i = 0; i < sticks.size(); i++)
+			{
+				number_of_array_access += 1;
+				number_of_comparision++;
+
+				Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::COMPARE_SFX);
+
+				if (sticks[i] == stick_to_search)
+				{
+					stick_to_search->stick_view->setFillColor(collection_model->found_element_color);
+					stick_to_search = nullptr;
+					return;
+				}
+				else
+				{
+					sticks[i]->stick_view->setFillColor(collection_model->processing_element_color);
+					std::this_thread::sleep_for(std::chrono::milliseconds(current_operation_delay));
+					sticks[i]->stick_view->setFillColor(collection_model->element_color);
+				}
+			}
 		}
 
 		void Gameplay::Collection::StickCollectionController::destroy()
@@ -115,5 +157,15 @@ namespace Gameplay
 		SearchType Gameplay::Collection::StickCollectionController::getSearchType() { return search_type; }
 
 		int Gameplay::Collection::StickCollectionController::getNumberOfSticks() { return collection_model->number_of_elements; }
+
+		int StickCollectionController::getNumberOfComparisions()
+		{
+			return 0;
+		}
+
+		int StickCollectionController::getNumberOfArrayAccess()
+		{
+			return 0;
+		}
 	}
 }
