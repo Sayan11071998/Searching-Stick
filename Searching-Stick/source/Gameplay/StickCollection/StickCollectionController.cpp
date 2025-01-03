@@ -22,29 +22,40 @@ namespace Gameplay
 			initializeSticksArray();
 		}
 
-		StickCollectionController::~StickCollectionController() { destroy(); }
+		Gameplay::Collection::StickCollectionController::~StickCollectionController() { destroy(); }
 
-		void StickCollectionController::initialize()
+		void Gameplay::Collection::StickCollectionController::initialize()
 		{
+			collection_model->initialize();
 			initializeSticks();
 			reset();
+			time_complexity = "XYZ";
 		}
 
-		void StickCollectionController::update()
+		void Gameplay::Collection::StickCollectionController::update()
 		{
+			processSearchThreadState();
+			collection_view->update();
 			for (int i = 0; i < sticks.size(); i++) { sticks[i]->stick_view->update(); }
 		}
 
-		void StickCollectionController::render()
+		void Gameplay::Collection::StickCollectionController::render()
 		{
+			collection_view->render();
 			for (int i = 0; i < sticks.size(); i++) { sticks[i]->stick_view->render(); }
 		}
 
 		void Gameplay::Collection::StickCollectionController::reset()
 		{
+			current_operation_delay = 0;
+
+			if (search_thread.joinable()) { search_thread.join(); }
+
+			shuffleSticks();
 			updateSticksPosition();
 			resetSticksColor();
-			shuffleSticks();
+			resetSearchStick();
+			resetVariables();
 		}
 
 		void Gameplay::Collection::StickCollectionController::initializeSticks()

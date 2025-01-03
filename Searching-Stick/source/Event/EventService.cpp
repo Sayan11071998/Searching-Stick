@@ -27,7 +27,6 @@ namespace Event
     {
         if (isGameWindowOpen())
         {
-            // Iterate over all events in the queue.
             while (game_window->pollEvent(game_event))
             {
                 if (gameWindowWasClosed() || hasQuitGame())
