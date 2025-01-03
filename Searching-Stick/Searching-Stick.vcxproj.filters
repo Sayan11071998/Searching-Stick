@@ -140,5 +140,8 @@
     <ClInclude Include="include\Gameplay\StickCollection\StickCollectionController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\UI\GameplayUI\GameplayUIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

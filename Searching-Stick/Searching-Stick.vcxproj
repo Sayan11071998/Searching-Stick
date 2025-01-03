@@ -167,6 +167,7 @@
     <ClInclude Include="include\Graphics\GraphicService.h" />
     <ClInclude Include="include\Main\GameService.h" />
     <ClInclude Include="include\Sound\SoundService.h" />
+    <ClInclude Include="include\UI\GameplayUI\GameplayUIController.h" />
     <ClInclude Include="include\UI\Interface\IUIController.h" />
     <ClInclude Include="include\UI\MainMenu\MainMenuUIController.h" />
     <ClInclude Include="include\UI\SplashScreen\SplashScreenUIController.h" />

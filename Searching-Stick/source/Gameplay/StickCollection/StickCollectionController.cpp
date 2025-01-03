@@ -140,6 +140,14 @@ namespace Gameplay
 			}
 		}
 
+		void StickCollectionController::processSearchThreadState()
+		{
+		}
+
+		void StickCollectionController::joinThreads()
+		{
+		}
+
 		void Gameplay::Collection::StickCollectionController::destroy()
 		{
 			for (int i = 0; i < sticks.size(); i++) { delete sticks[i]; }
@@ -166,6 +174,16 @@ namespace Gameplay
 		int StickCollectionController::getNumberOfArrayAccess()
 		{
 			return 0;
+		}
+
+		int StickCollectionController::getDelayMiliseconds()
+		{
+			return 0;
+		}
+
+		sf::String StickCollectionController::getTimeComplexity()
+		{
+			return sf::String();
 		}
 	}
 }

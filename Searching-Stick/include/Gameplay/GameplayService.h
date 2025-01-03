@@ -23,7 +23,11 @@ namespace Gameplay
 		void searchElement(Collection::SearchType search_type);
 
 		Collection::SearchType getCurrentSearchType();
+		int getNumberOfComparisons();
+		int getNumberOfArrayAccess();
 		int getNumberOfSticks();
+		int getDelayMilliseconds();
+		sf::String getTimeComplexity();
 
 	private:
 		GameplayController* gameplay_controller;

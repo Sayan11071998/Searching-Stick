@@ -29,6 +29,8 @@ namespace Gameplay
 			int getNumberOfSticks();
 			int getNumberOfComparisions();
 			int getNumberOfArrayAccess();
+			int getDelayMiliseconds();
+			sf::String getTimeComplexity();
 
 		private:
 			stickCollectionView* collection_view;
@@ -38,6 +40,7 @@ namespace Gameplay
 			Stick* stick_to_search;
 
 			Collection::SearchType search_type;
+			std::thread search_thread;
 
 			int number_of_comparision;
 			int number_of_array_access;
@@ -58,6 +61,8 @@ namespace Gameplay
 			void resetVariables();
 
 			void processLinearSearch();
+			void processSearchThreadState();
+			void joinThreads();
 
 			void destroy();
 		};
