@@ -8,7 +8,7 @@ namespace Gameplay
 	namespace Collection
 	{
 		class StickCollectionModel;
-		class stickCollectionView;
+		class StickCollectionView;
 		enum class SearchType;
 		struct Stick;
 
@@ -33,7 +33,7 @@ namespace Gameplay
 			sf::String getTimeComplexity();
 
 		private:
-			stickCollectionView* collection_view;
+			StickCollectionView* collection_view;
 			StickCollectionModel* collection_model;
 
 			std::vector<Stick*> sticks;
