@@ -111,14 +111,16 @@ namespace Gameplay
 			std::shuffle(sticks.begin(), sticks.end(), random_engine);
 		}
 
-		void StickCollectionController::resetSticksColor()
+		void Gameplay::Collection::StickCollectionController::resetSticksColor()
 		{
 			for (int i = 0; i < sticks.size(); i++)
 				sticks[i]->stick_view->setFillColor(collection_model->element_color);
 		}
 
-		void StickCollectionController::resetVariables()
+		void Gameplay::Collection::StickCollectionController::resetVariables()
 		{
+			number_of_comparision = 0;
+			number_of_array_access = 0;
 		}
 
 		void Gameplay::Collection::StickCollectionController::resetSearchStick()
@@ -151,17 +153,19 @@ namespace Gameplay
 			}
 		}
 
-		void StickCollectionController::processSearchThreadState()
+		void Gameplay::Collection::StickCollectionController::processSearchThreadState()
 		{
+			if (search_thread.joinable() && stick_to_search == nullptr)
+				joinThreads();
 		}
 
-		void StickCollectionController::joinThreads()
-		{
-		}
+		void Gameplay::Collection::StickCollectionController::joinThreads() { search_thread.join(); }
 
 		void Gameplay::Collection::StickCollectionController::destroy()
 		{
+			if (search_thread.joinable()) { search_thread.join(); }
 			for (int i = 0; i < sticks.size(); i++) { delete sticks[i]; }
+			
 			sticks.clear();
 
 			delete collection_view;
@@ -170,31 +174,28 @@ namespace Gameplay
 
 		void Gameplay::Collection::StickCollectionController::searchElement(SearchType search_type)
 		{
+			this->search_type = search_type;
 
+			switch (search_type)
+			{
+			case Gameplay::Collection::SearchType::LINEAR_SEARCH:
+				time_complexity = "O(n)";
+				current_operation_delay = collection_model->linear_search_delay;
+				search_thread = std::thread(&StickCollectionController::processLinearSearch, this);
+				break;
+			}
 		}
 
 		SearchType Gameplay::Collection::StickCollectionController::getSearchType() { return search_type; }
 
 		int Gameplay::Collection::StickCollectionController::getNumberOfSticks() { return collection_model->number_of_elements; }
 
-		int StickCollectionController::getNumberOfComparisions()
-		{
-			return 0;
-		}
+		int StickCollectionController::getNumberOfComparisions() { return number_of_comparision; }
 
-		int StickCollectionController::getNumberOfArrayAccess()
-		{
-			return 0;
-		}
+		int StickCollectionController::getNumberOfArrayAccess() { return number_of_array_access; }
 
-		int StickCollectionController::getDelayMiliseconds()
-		{
-			return 0;
-		}
+		int StickCollectionController::getDelayMiliseconds() { return current_operation_delay; }
 
-		sf::String StickCollectionController::getTimeComplexity()
-		{
-			return sf::String();
-		}
+		sf::String StickCollectionController::getTimeComplexity() { return time_complexity; }
 	}
 }
