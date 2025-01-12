@@ -4,7 +4,7 @@
 
 ## **🎯 Game Features:**
 - ### *🔍 Search & Learn:*
--- 🥢 The game presents a list of sticks, and your mission is to find a random target stick.
+👉 🥢 The game presents a list of sticks, and your mission is to find a random target stick.
 
 👆 Two Modes:
 
