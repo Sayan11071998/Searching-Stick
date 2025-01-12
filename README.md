@@ -8,7 +8,7 @@
 - ### *👆 Two Modes:*
 - 1️⃣ Linear Search Mode: Search through an unsorted list one stick at a time.
 - 2️⃣ Binary Search Mode: Use the power of the Binary Search Algorithm on a sorted list for faster results!
-- ### *💡 Visual Learning:* Each step of the algorithm is brought to life with smooth animations, so you can watch and learn as the algorithm works its magic! ✨
+- *💡 Visual Learning:* Each step of the algorithm is brought to life with smooth animations, so you can watch and learn as the algorithm works its magic! ✨
 
 
 
