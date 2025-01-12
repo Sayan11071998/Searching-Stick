@@ -1,14 +1,9 @@
-🚀 Project Milestone: Searching Sticks! 🎮✨
-
-
+# ***🚀 Project Milestone: Searching Sticks! 🎮✨***
 
 🌟 Hey everyone! Super excited to share my latest project: Searching Sticks! Built with C++ and SFML, this game combines fun visuals with algorithm learning—a perfect way to make searching algorithms more interactive and enjoyable! 🎉
 
-
-
-🎯 Game Features:
-
-🔍 Search & Learn:
+## **🎯 Game Features:**
+- ### *🔍 Search & Learn:*
 
 🥢 The game presents a list of sticks, and your mission is to find a random target stick.
 
