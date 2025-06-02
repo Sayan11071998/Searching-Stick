@@ -47,6 +47,8 @@ Hey everyone! Super excited to share my latest project: **Searching Sticks**! Bu
 - **Language:** C++  
 - **Graphics & Audio:** SFML (Simple and Fast Multimedia Library)
 
+[![Watch the video](https://img.youtube.com/vi/dYQeABtio7Y/maxresdefault.jpg)](https://youtu.be/dYQeABtio7Y)
+### [Gameplay Video](https://youtu.be/dYQeABtio7Y)
 
 ![Searching_Sticks_03](https://github.com/user-attachments/assets/9d872461-e4db-4f93-a6fe-1cb5077313f0)
 
