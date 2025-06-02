@@ -47,6 +47,9 @@ Hey everyone! Super excited to share my latest project: **Searching Sticks**! Bu
 - **Language:** C++  
 - **Graphics & Audio:** SFML (Simple and Fast Multimedia Library)
 
+- ## **💬 Let’s Connect!**
+Are you into game dev, C++ programming, or just love geeking out over algorithms? Let’s chat! I’d love to hear your feedback, ideas, or even stories about how you learned your first algorithms. 🌟
+
 [![Watch the video](https://img.youtube.com/vi/dYQeABtio7Y/maxresdefault.jpg)](https://youtu.be/dYQeABtio7Y)
 ### [Gameplay Video](https://youtu.be/dYQeABtio7Y)
 
@@ -57,6 +60,3 @@ Hey everyone! Super excited to share my latest project: **Searching Sticks**! Bu
 ![Searching_Sticks_02](https://github.com/user-attachments/assets/e9bfd1ba-8e57-40f4-a07f-1661161d82b8)
 
 ![Searching_Sticks_04](https://github.com/user-attachments/assets/32df5f7e-cbff-4d88-872e-df3d10918a8c)
-
-## **💬 Let’s Connect!**
-Are you into game dev, C++ programming, or just love geeking out over algorithms? Let’s chat! I’d love to hear your feedback, ideas, or even stories about how you learned your first algorithms. 🌟
